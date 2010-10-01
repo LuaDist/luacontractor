@@ -1,0 +1,14 @@
+--- This file is part of LuaDist project
+
+name = "luacontractor"
+version = "0.6"
+
+desc = "LuaContractor is a lightweight Design by Contract (DbC) framework for the Lua scripting language."
+author = "Frederic Peschanski"
+license = "MIT"
+url = "http://luaforge.net/projects/luacontractor/"
+maintainer = "Peter Kapec"
+
+depends = {
+	"lua ~> 5.1"
+}
