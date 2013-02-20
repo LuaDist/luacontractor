@@ -1,0 +1,31 @@
+type = "x86"
+arch = "Windows"
+author = "Frederic Peschanski"
+depends = {
+[[lua ~> 5.1]],
+}
+
+desc = "LuaContractor is a lightweight Design by Contract (DbC) framework for the Lua scripting language."
+version = "0.6"
+maintainer = "Peter Kapec"
+files = {
+Runtime = {
+[[lib\lua\contractor.lua]],
+}
+,
+Example = {
+[[share\luacontractor\example\\BankAccount.lua]],
+[[share\luacontractor\example\\Counter.lua]],
+}
+,
+Data = {
+[[share\luacontractor\COPYRIGHT]],
+[[share\luacontractor\HISTORY]],
+[[share\luacontractor\README]],
+}
+,
+}
+
+license = "MIT"
+name = "luacontractor"
+url = "http://luaforge.net/projects/luacontractor/"
