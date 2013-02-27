@@ -1,0 +1,107 @@
+LuaContractor
+-------------
+
+(C) 2007 by Frederic Peschanski
+(see COPYRIGHT file)
+
+
+OVERVIEW
+--------
+
+LuaContractor is a lightweight Design by Contract (DbC) framework for the Lua scripting
+language. It allows to transform standard Lua functions and tables to self-testing
+equivalents. Contracts can be added/removed in a totally transparent way.
+
+There are two forms of LuaContractor contracts:
+
+- Contracts for functions, surrounded by precondition and postconditions wrappers
+- Contracts for tables, whose consistency is checked by invariants
+
+Design by contract is about implementing (and well, not really designing) software
+with (at least some) correctness and robustness in mind. 
+One may ask why Lua programmers, mostly interested by scripting issues, would consider 
+correctness and robustness ? 
+Well, I have a few possible answers (pick one or none):
+- buggy scripts can be *really* harmful
+- Lua scripts sometimes tend toward real-worl heavyweight software
+- LuaContractor adopts an incremental approach, you may keep the functions/tables and
+  contracts totally separated. And contracts may be removed at any time.
+
+But writing good contracts is like writing good tests (IMHO contracts are embedded tests, not
+really more than that)... not a trivial task.
+
+If compared to unit testing, DbC is complementary in that writing good contracts helps at
+writing good tests. A key advantage of DbC is that the tests are embedded in the production
+code: this is self-testing code working on the real data... It also allows to write tests
+at a higher level of abstraction since the lower-level tests are embedded by contracts. This is
+a must for integration purposes. But of course the software should be tested before being put into 
+production...
+
+The LuaContractor library heavily exploits the metatables and functions-as-closures features
+of Lua, so its (probably perfectible) implementation may also be interesting for Lua learners
+(welcome to the club !).
+
+INSTALLATION
+------------
+
+There is no installation procedure per-se. The only "difficult" part is in uncompressing
+the archive, which may look like the following one any Linux/Unix/Mingw/Cygwin/MacOSX environment:
+
+> tar xvzf LuaContractor-<VERSION>.tar.gz
+
+To check the library, you can try the (few) provided examples:
+
+> source ./prepare.sh
+> lua examples/Counter.lua
+...
+> lua examples/BankAccount.lua
+...
+> (etc.)
+
+The examples Counter.lua and BankAccount.lua are heavily commented and describe the
+whole set of features of LuaContractor.
+
+CONTENTS
+--------
+LuaContractor-<VERSION>/  :  main directory
+   README : this file
+   HISTORY : the history of versions
+   COPYRIGHT : our rights (and few duties)
+   VERSION : the current version
+   lib/ : the library file(s)
+   lib/contractor.lua : the main LuaContractor module
+   examples/ : largely commented examples
+   prepare.sh : to test LuaContractor (see INSTALLATION just above)
+
+USAGE
+-----
+
+LuaContractor is a one-file Lua module (the contractor.lua source file consisting of less than 300 hundred lines with coments)
+, so the basic usage is simple:
+
+1) add the location of the LuaContractor.lua file to the LUA_PATH environment variable
+
+2) put require "contractor"  in your Lua files
+
+3) enjoy ! (well, sort of)
+
+I recommand to skim over the examples, and read the documentation on the project page 
+(if me or someone else writes a fuller documentation at some point).
+
+CONTACT
+-------
+
+Please use the project page on LuaForge
+
+
+LINKS
+-----
+
+- LuaContractor home page: http://luacontractor.luaforge.net
+
+- Lua home page:  http://www.lua.org
+- LuaForge projects: http://www.luaforge.net
+
+- Abount Design by Contract (wikipedia): http://en.wikipedia.org/wiki/Design_by_Contract
+
+- Personal home page: http://www.lip6.fr/~pesch
